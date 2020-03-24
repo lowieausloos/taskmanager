@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Task detail</h1>
+<p th:if="${task == null}">Task not found</p>
+<div th:if="${task != null}">
+    <p>Title: </p><p th:text="${task.name}"></p><br>
+    <p>Description: </p><p th:text="${task.description}"></p><br>
+    <p>Due date: </p><p th:text="${task.dueDate}"></p><br>
+</div>
+</body>
+</html>

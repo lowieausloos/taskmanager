@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tasks</h1>
+<ul >
+    <li th:each="task : ${tasks}" th:id="${task.id.toString()}">
+        <a  th:href="${'/tasks/' + task.id.toString()}" th:text="${task.name} + ':  '"></a>
+        <span th:text="${'  Due Date: ' + task.getDate() + '  '}"></span>
+        <a th:href="${'/tasks/edit/' + task.id.toString()}">Edit Task</a>
+        <a th:href="${'/tasks/' + task.id.toString() + '/sub/create'}"> Create Sub task   </a>
+        <ul>
+            <div th:each="sub: ${task.list}">
+            <li  th:text="${sub.title}"></li>
+            </div>
+        </ul>
+    </li>
+</ul>
+<p th:if="${#lists.isEmpty(tasks)}">No tasks left to do</p>
+
+</body>
+</html>
