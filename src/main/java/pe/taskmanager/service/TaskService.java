@@ -8,6 +8,7 @@ import pe.taskmanager.dto.SubtaskDTO;
 import pe.taskmanager.dto.TaskDTO;
 import pe.taskmanager.repository.TaskRepository;
 
+import javax.persistence.Convert;
 import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -42,12 +43,14 @@ public class TaskService implements TaskServiceInterface {
         task.setDueDate(taskDTO.getDueDate());
         task.setName(taskDTO.getName());
         task.setId(taskDTO.getId());
-        repository.save(task);repository.save(task);
+        repository.save(task);
+
     }
 
     @Override
     public void edit(String id, TaskDTO taskDTO){
         UUID uuid = UUID.fromString(id);
+        List<Task> tasks = repository.findAll();
         Task toedit = repository.findById(uuid).orElse(null);
         if(toedit != null){
             toedit.setName(taskDTO.getName());

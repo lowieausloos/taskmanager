@@ -19,9 +19,9 @@ public class TaskController {
     @Autowired
     TaskServiceInterface taskService;
 
-    @GetMapping
+    @GetMapping("/index")
     public String index(){
-        return "index.html";
+        return "index";
     }
 
     @GetMapping("/tasks")
