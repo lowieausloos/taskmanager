@@ -8,9 +8,9 @@
 <h1 th:text="#{detail}"></h1>
 <p th:if="${task == null}">Task not found</p>
 <div th:if="${task != null}">
-    <p>Title: </p><p th:text="${task.name}"></p><br>
-    <p>Description: </p><p th:text="${task.description}"></p><br>
-    <p>Due date: </p><p th:text="${task.dueDate}"></p><br>
+    <p th:text="#{title}"></p><p th:text="${task.name}"></p><br>
+    <p th:text="#{description}"></p><p th:text="${task.description}"></p><br>
+    <p th:text="#{duedate}"></p><p th:text="${task.dueDate}"></p><br>
 </div>
 </body>
 </html>
